@@ -1,0 +1,97 @@
+<!--pages/template/template.wxml-->
+<!-- <text>pages/template/template.wxml</text> -->
+<!-- 购物车 -->
+<!-- 我是购物车模版 -->
+<!-- 封装公共模板 -->
+<template name="templ">
+  <view>我是模板！！！</view>
+</template>
+
+<template name="cart1">
+  <!-- 123456 -->
+  <view class="wll_box_cart">
+    <view class="wll_cart" wx:if='{{items==""?true:false}}'>
+      <view class="wll_item">
+        <image src="/image/cart1.jpg"></image>
+        <view class="wll_i1">购物车空空如也~</view>
+        <button type="primary" bindtap="goin">去逛逛</button>
+      </view>
+    </view>
+  </view>
+  <!-- <image class="wll_foo" src="/image/api.png"></image> -->
+</template>
+
+<template name="cart2">
+  <!-- 添加到购物车的数据，有显示，没有就隐藏 -->
+  <view  class="wll_box_cart">
+    <view class="wll_container" wx:if='{{items==""?false:true}}'>
+      <view class="wll_main {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="index">
+        <view class="wll_content">
+          <view class="wll_content1">
+          <view class="wll_list">
+            <view class="wll_li">
+               <view class="wll_tu" wx:if="{{!item.active}}" bindtap="tu" data-index="{{index}}"></view>
+                <image class="wll_tu_one" wx:if="{{item.active}}" src="/image/active.jpg" bindtap="tu_one" data-index="{{index}}"></image>
+              <view class="wll_left">
+                <image class="wll_img1" src="{{item.pic}}"></image>
+              </view>
+              <!-- 右 -->
+              <view class="wll_right">
+                  <text>{{item.name}}</text>
+                  <view class="wll_yanse">
+                    <view>{{item.sku[0].optionName}}:</view>
+                    <view>{{item.sku[0].optionValueName }}</view> 
+                    
+                    <view>{{ item.sku[1].optionName}}:</view>
+                    <view>{{item.sku[1].optionValueName}}</view>
+                  </view>
+                  <view class="wll_ri-bottom">
+                  <text>￥{{item.price*item.number}}</text>
+                  <view class="wll_cou_right">
+                        <view bindtap="reduce" data-key="{{item.key}}" data-number="{{item.number-1}}">-</view>
+                        <view>{{item.number}}</view>
+                        <view bindtap="add" data-key="{{item.key}}" data-number="{{item.number+1}}">+</view>
+                    </view>
+                  </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        </view>
+        <view class="wll_del" catchtap="del" data-x="{{index}}" data-index="{{item.key}}">删除</view>
+      </view>
+      </view>
+      <view class="wll_foot" wx:if='{{items==""?false:true}}'>
+        <view class="wll_le">
+          合计: ￥ <text>{{zong}}</text>
+        </view>
+        <view class="wll_ri" bindtap="sub">去结算</view>
+      </view>
+      <!-- 引入购物车模版 -->
+      <!-- <import src='../../templatest/template-test.wxml'/> -->
+      <!-- <template is="shopcar" data="{{...item}}"  data="{{list}}"> -->
+          
+      <!-- </template> -->
+
+      <!-- <view class="wll_cart1" wx:if='{{cart==""?false:true}}'>
+          <view class="wll_main" wx:for='{{cart}}' wx:key='index'>
+            <image class="wll-m-l" src="{{item.pic}}"></image>
+            <view class="m-r">
+              <view class="wll_name">{{item.name}}</view>
+              <view class="wll_yanse">
+                <view>{{item.sku[0].optionName}}:</view>
+                <view>{{item.sku[0].optionValueName }}</view> 
+                
+                <view>{{ item.sku[1].optionName}}:</view>
+                <view>{{item.sku[1].optionValueName}}</view>
+              </view>
+              <view>
+                <view>￥{{item.price}}</view>
+              </view>
+            </view>
+            <view class="wll_del" catchtap="del" data-index="{{index}}">删除</view>
+          </view> -->
+      <!-- </view> -->
+      <image class="wll_foo" src="/image/api.png"></image>
+  </view>
+</template>

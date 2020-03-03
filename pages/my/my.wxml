@@ -1,0 +1,118 @@
+<!--pages/my/my.wxml-->
+<!-- <text>我是我的页面</text> -->
+<!-- 我的页面 -->
+<view class="wll_my">
+  <!-- 头部 -->
+  <view class="wll_header">
+    <!-- <image src="/image/icon.png" wx:if="{{!isLog}}"></image>
+    <button bindgetuserinfo="aa" open-type="getUserInfo" wx:if="{{!isLog}}">点击登录账户</button> -->
+    <!-- <image src="{{data.avatarUrl}}" style="border-radius: 100%;" wx:if="{{isLog}}"></image>
+    <text wx:if="{{isLog}}" class="wll_button">{{data.nick}}</text> -->
+    <image src="{{data.avatarUrl}}" style="border-radius: 100%;"></image>
+    <text class="wll_button">{{data.nick}}</text>
+    <!-- <button class="wll_button"></button> -->
+    <view class="wll_ul">
+      <!-- 余额开始 -->
+      <view class="wll_li">
+        <text>0.00</text>
+        <text>余额</text>
+      </view>
+      <view class="wll_li">
+        <text>0.00</text>
+        <text>冻结</text>
+      </view>
+      <view class="wll_li">
+        <text>0</text>
+        <text>积分</text>
+      </view>
+    </view>
+    <!-- 余额结束 -->
+  </view>
+  <view class="wll_ding">
+    <!-- 我的订单 -->
+    <view class="wll_ding_one" bindtap="order">
+      <view>我的订单 </view>
+      <image src="/image/rihgt.png"></image>
+    </view>
+    <view class="wll_ding_two">
+      <view class="wll_ding_three" bindtap="order">
+        <image src="/image/wode_03.jpg"></image>
+        <view>待付款</view>
+      </view>
+      <view class="wll_ding_three" bindtap="order">
+        <image src="/image/wode_05.jpg"></image>
+        <view>待发货</view>
+      </view>
+      <view class="wll_ding_three" bindtap="order">
+        <image src="/image/wode_07.jpg"></image>
+        <view>待收货</view>
+      </view>
+      <view class="wll_ding_three" bindtap="order">
+        <image src="/image/wode_09.jpg"></image>
+        <view>待评价</view>
+      </view>
+      <view class="wll_ding_three" bindtap="order">
+        <image src="/image/wode_11.jpg"></image>
+        <view>退款/售后</view>
+      </view>
+    </view>
+    <!-- 我的订单 -->
+  </view>
+  <!-- 中间广告部分 -->
+  <view class="wll_content">
+      <image src="../../image/api.png"></image>
+  </view>
+  <!-- 底部 -->
+  <view class="wll_footer">
+    <view class="wll_dl">
+      <text>成为分销商</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>申请开票</text>
+      <text>></text>
+    </view>
+     <view class="wll_dl">
+      <text>开票记录</text>
+      <text>></text>
+    </view>
+     <view class="wll_dl">
+      <text>优惠买单</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>资金明细</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>每日签到</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>积分兑换</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl" bindtap="address">
+      <text>收货地址</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>领券中心</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>关于我们</text>
+      <text>></text>
+    </view>
+    <view class="wll_dl">
+      <text>绑定手机</text>
+      <text class="wll_ljbd wll_bout">立即绑定</text>
+    </view>
+    <view class="wll_dl">
+      <text bindtap="Sign">退出登录</text>
+      <text>></text>
+    </view>
+  </view>
+  
+</view>
+

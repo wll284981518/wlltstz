@@ -1,0 +1,83 @@
+<!--packageA/pages/order/order.wxml-->
+<!-- <text>packageA/pages/order/order.wxml</text> -->
+<!-- 订单列表页面布局开始 -->
+<view class="wll_order">
+	<view wx:if='{{hasRefund}}' class="wll_order_status-box">
+		<view bindtap="statusTap" class="wll_order_status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+			{{item}}
+			<view class="{{tabClass[index]}}"></view>
+		</view>
+	</view>
+	<view class="wll_order_no-order" hidden="{{orderList}}">
+		<image src="/image/ding.png" class="wll_order_no-order-img"></image>
+		<view class="wll_order_text">暂无订单</view>
+	</view>
+	<view class="wll_order_order-list">
+		<view class="wll_order_a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
+			<!-- <navigator url="/pages/order-details/index?id={{item.id}}" class="wll_order_weui-cell weui-cell_access" hover-class="wll_order_weui-cell_active">
+        <view class="wll_order_weui-cell__bd">{{item.orderNumber}}</view>
+        <view class="wll_order_weui-cell__ft weui-cell__ft_in-access">{{item.statusStr}}</view>
+      </navigator> -->
+      <!--头  -->
+      <view  class="wll_order_dingDan_list_top">
+        <view>{{item.orderNumber}}</view>
+        <view class="wll_view">
+          <view>{{item.statusStr}}</view>
+          <image src="/image/rihgt.png"></image>
+        </view>
+      </view>
+			<scroll-view class="wll_order_goods-img-container" scroll-x="true" bindtap="orderdetails" data-id="{{item.id}}">
+				<view class="wll_order_img-box" wx:for-items="{{goodsMap[item.id]}}" wx:key="{{index}}" >
+					<image src="{{item.pic}}" class="wll_order_goods-img"></image>
+				</view>
+			</scroll-view>
+			<view class="wll_order_goods-price">
+				共 {{item.goodsNumber}} 件商品 合计：
+				<text class="wll_order_p" wx:if="{{item.score <= 0}}">¥ {{item.amountReal}}</text>
+				<text class="wll_order_p" wx:if="{{item.score > 0}}">¥ {{item.amountReal}} + {{item.score}} 积分</text>
+			</view>
+			<view class="wll_order_goods-info">
+				<view class="wll_order_goods-des">
+					<view class="wll_order_remark" wx:if="{{item.remark && item.remark != ''}}">{{item.remark}}</view>
+					<view>{{item.dateAdd}} </view>
+				</view>
+			</view>
+			<view class="wll_order_price-box">
+				<view class="wll_order_btn" hidden="{{item.status==0? false : true}}" bindtap="cancelOrderTap" data-id="{{item.id}}">取消订单</view>
+				<view class="wll_order_btn active" hidden="{{item.status==0? false : true}}" bindtap="toPayTap" data-ite='{{item}}' data-money="{{item.amountReal}}" data-score="{{item.score}}">马上付款</view>
+				<view class="wll_order_btn active" hidden="{{(item.status==0 || item.status==-1) ? true : false}}" bindtap="refundApply" data-id="{{item.id}}" data-amount='{{item.amountReal}}'>退换货</view>
+			</view>
+		</view>
+	</view>
+	<view class="safeAreaOldMarginBttom safeAreaNewMarginBttom"></view>
+	<!-- 底部固定导航 -->
+  <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+    <image src="/image/ll.png"></image>
+    <view>快速导航</view>
+  </view>
+  <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+    <view class="wll_zi_bottom_one_nav">
+      <image src="/image/rl.png"></image>
+      <text>快速导航</text>
+    </view>
+    <view class="wll_zi_bottom_two">
+      <view class="wll_zi_bottom_two_dd" bindtap="index">
+        <image src="/image/index.png"></image>
+        <text>首页</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="classify">
+        <image src="/image/classify.png"></image>
+        <text>分类</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="cart">
+        <image src="/image/cart.png"></image>
+        <text>购物车</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="my">
+        <image src="/image/my.png"></image>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+</view>
+<float-menu/>

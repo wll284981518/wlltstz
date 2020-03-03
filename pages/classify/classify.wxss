@@ -1,0 +1,129 @@
+/* pages/classify/classify.wxss */
+/* 整体 */
+.wll_classify{
+  width: 100%;
+  height: 100%;
+}
+
+/* 搜索框 */
+.wll_classify_search{
+  display: flex;
+  width: 84%;
+  height: 60rpx;
+  border: 1px solid #c0c0c0;
+  padding-left: 20rpx;
+  border-radius: 16px; 
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px auto;
+  font-size: 30rpx;
+}
+
+.wll_classify_search>input{
+  height: 60rpx;
+}
+
+.wll_classify_search>icon{
+  margin-right: 10px;
+}
+
+/* 内容区域 */
+.wll_classify_con{
+  width: 100%;
+  height:auto;
+  /* border: 1px solid #000;  */
+  background: #eee;
+  display: flex;
+  background: #fff;
+}
+
+.wll_classify_left{
+  width: 30%;
+  height:100%;
+  /* border: 1px solid #000;  */
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.wll_classify_left_one{
+  /* margin: 10px 0; */
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.active{
+  color: red;
+  font-weight: bold;
+  border-left: 1px solid red;
+}
+
+.wll_classify_right{
+  width: 70%;
+  height: 1200rpx;
+  overflow-y: scroll;
+}
+
+.wll_classify_right_one{
+  display: flex;
+  width: 90%;
+  height:140rpx;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  font-size: 24rpx;
+}
+
+.wll_classify_right_one>image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 10px;
+}
+
+.wll_classify_right_two{
+  width: 280rpx;
+  height: auto;
+  /* border: 1px solid #000; */
+}
+
+.wll_classify_right_two>view:nth-child(1){
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wll_classify_right_two>view:nth-child(2){
+  font-weight: bold;
+  color: red;
+  margin: 4px 0;
+}
+
+.wll_classify_right_three{
+  display: flex;
+  font-size: 24rpx;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  justify-content: space-between;
+}
+
+.wll_classify_right_three>view:nth-child(1){
+  color: red;
+  width: auto;
+  height: 40rpx;
+  border: 1px solid red;
+  padding: 0 4px;
+  /* line-height: 20px; */
+}
+
+/* 暂无数据 */
+.wll_classify_end{
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+  padding: 0 20px;
+}

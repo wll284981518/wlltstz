@@ -1,0 +1,23 @@
+/* pages/authorize/authorize.wxss */
+/* 搜权页面 */
+.wll_authorize{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wll_authorize text{
+  padding: 2% 4%;
+  font-size: 34rpx;
+}  
+
+.wll_authorize button{
+  padding: 0;
+  width: 96%;
+  height: 100rpx;
+  font-size: 40rpx;
+  line-height: 100rpx;
+  margin: 0 auto;
+  color: #ffffff;
+  background: #ed1d19;
+}

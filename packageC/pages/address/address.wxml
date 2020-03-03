@@ -1,0 +1,57 @@
+<!--pages/address/address.wxml-->
+<!-- 收货地址 -->
+<view class="wll_address">
+  <!-- 内容 -->
+  <view class="wll_address_con">
+    <view class="wll_address_con_one"  wx:for="{{data}}" wx:key="key" wx:for-index="id" data-index="{{id}}">
+      <view  class="wll_address_con_two">
+        <view class="wll_aa">
+          <view class="wll_bb">{{item.linkMan}}</view>
+          <text wx:if="{{item.isDefault}}" style="background:#0ddc95;color:#fff">默认</text>
+          <text>{{item.mobile}}</text>
+        </view>
+        <view class="wll_aa">
+          <view class="wll_bb">{{item.provinceStr}}{{item.cityStr}}{{item.areaStr}}{{item.address}}</view>
+        </view>
+        <view></view>
+      </view>
+      <image src="/image/edit.png" catchtap="update" data-iD="{{item.id}}"></image>
+      </view>
+    </view>
+    <!-- 底部固定 -->
+    <view class="wll_address_con_three" bindtap="newAddress">
+      <view>+</view>
+      <view>新增收货地址</view>
+      <image src="/image/rihgt.png"></image>
+    </view>
+    <!-- 底部固定导航 -->
+  <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+    <image src="/image/ll.png"></image>
+    <view>快速导航</view>
+  </view>
+  <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+    <view class="wll_zi_bottom_one_nav">
+      <image src="/image/rl.png"></image>
+      <text>快速导航</text>
+    </view>
+    <view class="wll_zi_bottom_two">
+      <view class="wll_zi_bottom_two_dd" bindtap="index">
+        <image src="/image/index.png"></image>
+        <text>首页</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="classify">
+        <image src="/image/classify.png"></image>
+        <text>分类</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="cart">
+        <image src="/image/cart.png"></image>
+        <text>购物车</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="my">
+        <image src="/image/my.png"></image>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+<!-- 结束 -->
+</view>

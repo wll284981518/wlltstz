@@ -1,0 +1,12 @@
+<!--pages/authorize/authorize.wxml-->
+<!-- 授权 -->
+<view class="wll_authorize">
+  <text>1、同意当前小程序获取我的头像{{user}}</text>
+  <text>2、同意当前小程序获取我的个人信息</text>
+  <button class="wll_button" type="warn" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">同意授权</button>
+  <text>{{userInfo}}</text>
+  <text>{{openid}}</text>
+  <text>{{token}}</text>
+  <text>{{uid}}</text>
+</view>
+

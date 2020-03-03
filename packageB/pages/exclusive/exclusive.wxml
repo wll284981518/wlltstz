@@ -1,0 +1,7 @@
+<!--pages/exclusive/exclusive.wxml-->
+<!-- <text>我是专属页面</text> -->
+<text class="wll_title">定制您的专属小程序商城</text>
+<image src="/image/exclusive1.png" style="display:block;width:96%;height:240rpx;margin:0 auto;"></image>
+<view>
+  <image src="/image/exclusive2.jpg" bindtap="previewImage" mode="widthFix" data-src="/image/exclusive2.jpg"></image> 
+</view>

@@ -1,0 +1,77 @@
+<!--pages/newaddress/newaddress.wxml-->
+<!-- <text>pages/newaddress/newaddress.wxml</text> -->
+<!-- 新增地址 -->
+<view class="wll_box_address">
+  <!-- 读取微信地址 -->
+  <view class="wll_address">
+    <view hover-class="wll_active" class="wll_address_wx">读取微信地址</view>
+    <!-- 详细内容 -->
+    <view class="wll_address_con">
+      <view class="wll_address_con_one">
+        <view class="wll_inp">联系人</view>
+        <input id="name"  placeholder="姓名" value="{{userName}}" type='text'  bindinput ="userNameInput"></input>
+      </view>
+      <view class="wll_address_con_one">
+        <view class="wll_inp">手机号码</view>
+        <input id="name" placeholder="11位手机号码" value="{{telNumber}}" type="number" bindinput ="userPhoneInput"></input>
+      </view>
+      <view class="wll_address_con_one">
+        <view class="wll_inp">邮政编码</view>
+        <input id="name"  placeholder="邮政编码" value="{{CodeInput}}" type="number" bindinput ="userCodeInput"></input>
+      </view>
+      <view class="wll_address_con_one">
+        <!-- <view class="wll_inp"></view> -->
+        <picker mode="region" bindchange="bindRegionChange">
+          <view class="wll_inp1">选择地区：{{region[0]}} {{region[1]}} {{region[2]}}</view>
+        </picker>
+      </view>
+      <view class="wll_address_con_one">
+        <view class="wll_inp">详细地址</view>
+        <input id="name" placeholder="街道门牌信息" value="{{address}}" 
+      bindinput="address" type="text" bindinput ="userDetailsInput">></input>
+      </view>
+      <view class="wll_address_con_one">
+        <view></view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="wll_inp1">
+            是否为默认地址: {{array[index]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- 保存地址 -->
+    <view wx:if="{{!edit}}" hover-class="wll_active_one" class="wll_address_bao" bindtap="add">保存</view>
+    <!-- <view wx:if='{{edit}}' hover-class="wll_active_one" class="wll_address_bao" bindtap="edit">修改</view>
+    <view wx:if='{{edit}}' hover-class="wll_active_one" class="wll_address_bao" bindtap="del">删除</view> -->
+    <!-- 底部固定导航 -->
+    <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+      <image src="/image/ll.png"></image>
+      <view>快速导航</view>
+    </view>
+    <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+      <view class="wll_zi_bottom_one_nav">
+        <image src="/image/rl.png"></image>
+        <text>快速导航</text>
+      </view>
+      <view class="wll_zi_bottom_two">
+        <view class="wll_zi_bottom_two_dd" bindtap="index">
+          <image src="/image/index.png"></image>
+          <text>首页</text>
+        </view>
+        <view class="wll_zi_bottom_two_dd" bindtap="classify">
+          <image src="/image/classify.png"></image>
+          <text>分类</text>
+        </view>
+        <view class="wll_zi_bottom_two_dd" bindtap="cart">
+          <image src="/image/cart.png"></image>
+          <text>购物车</text>
+        </view>
+        <view class="wll_zi_bottom_two_dd" bindtap="my">
+          <image src="/image/my.png"></image>
+          <text>我的</text>
+        </view>
+      </view>
+    </view>
+  </view>  
+<!-- 结束 -->
+</view>

@@ -1,0 +1,138 @@
+<!--pages/index/index.wxml-->
+<view class="wll_index">
+  <!-- 头部 -->
+  <view class="wll_head">
+    <!-- 搜索框 -->
+    <view class="wll_swiper">
+      <view class="wll_search">
+        <input type="text" class="wll_input" placeholder="输入搜索关键词" value="{{inputVal}}"  bindinput="inputTyping" bindconfirm="search"></input>
+        <image src='/image/tianshi_03.jpg' class='wll_image1' mode='aspectFill'></image>
+      </view>
+      <!-- 轮播图 -->
+      <swiper class="wll_swiper" indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{bannerList}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item.linkUrl}}" class="slide-image wll_img" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!--上下文字滚动  -->
+  <view class="wll_scroll">
+    <view class="wll_Scroll_content">  
+      <image src='/image/tianshi_07.jpg' class='wll_image2' mode='aspectFill'></image>
+      <swiper class="wll_swiper_container" vertical="true" autoplay="true" circular="true" interval="6000">     
+        <block>      
+          <swiper-item wx:for="{{wll_li}}" wx:key="index" bindtap="gotoNotice" data-name="{{item.title}}">            
+            <view class="wll_swiper_item">{{item.title}}</view>      
+          </swiper-item>
+        </block>    
+      </swiper>
+      <text class="wll_text1">更多 ></text>
+    </view>
+  </view>
+  <!-- 导航列表 -->
+  <!-- div -->
+  <view class="wll_userlist">
+    <!-- ul -->
+    <view class="wll_list_top">
+      <!-- li -->
+      <view class="wll_view" wx:for="{{ban}}" wx:key='index' bindtap="gotoSearch" data-name="{{item.name}}" wx:if="{{index<10}}">
+        <image src="{{item.icon}}" class="wll_userlistimg"></image>
+        <text class="wll_p">{{item.name}}</text>
+      </view>
+      <!-- <navigator url='../search/search?id={{item.id}}' class="wll_view" wx:for="{{ban}}" wx:key='index' data-id="{{item.id}}" wx:if="{{index<10}}">
+        <image src="{{item.icon}}" class="wll_userlistimg"></image>
+        <text class="wll_p">{{item.name}}</text>
+      </navigator> -->
+    </view>
+    <!-- 爆品推荐 -->
+    <view class="wll_products">
+      <view></view>
+      <text>爆品推荐</text>
+      <view></view>
+    </view>
+  </view>
+  <!-- 计时器 -->
+  <view class="wll_timer">
+    <view class="wll_li1" wx:for="{{list}}" wx:key="index" wx:if="{{index<2}}" bindtap="gotoDetails" data-name="{{item.id}}">
+      <image src="{{item.pic}}"></image>
+      <text class="wll_name1">{{item.name}}</text>
+      <view class="wll_price1">
+        <text class="wll_minPrice">￥{{item.minPrice}}</text>
+        <text class="wll_originalPrice">￥{{item.originalPrice}}</text>
+      </view>
+    </view>
+    <!-- api小工厂 -->
+    <view class="wll_apiimg" wx:for="{{apiimg}}" wx:key="index">
+      <image src="{{item}}"></image>
+    </view>
+  </view>
+  <!-- 疯狂砍价 -->
+  <view class="wll_bargain">
+    <view class="wll_k1">疯狂砍价</view>
+    <view class="wll_k2">
+      <image src="../../image/home22.jpg"></image>
+      <view class="wll_rig">
+        <view class="wll_r1">男童防晒衣夏装薄外套2019年新款···</view>
+        <view class="wll_r2">尼多熊袜子，适合秋冬</view>
+        <view class="wll_r3">
+          <text class="wll_kt1">原价:180</text>
+          <text class="wll_kt2">低价:80</text>
+          <button type="primary" size="mini" class="wll_button" bindtap="kanjia">砍价</button>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!-- 全民拼团 -->
+  <view class="wll_booking">
+  <!-- 标题 -->
+    <view class="wll_group">
+      <view class="wll_tuijian">
+        <view></view>
+        <text>全民拼团</text>
+        <view></view>
+      </view>
+    </view>
+    <!-- 内容 -->
+    <view class="wll_con">
+      <image src="/image/home2_07.jpg"></image>
+      <view class="wll_conA">儿童睡衣男童短袖纯棉夏季薄款男孩中大童卡通宝宝家居服套装夏天</view>
+      <view class="wll_conB">尼多熊袜子，适合秋冬</view>
+      <view class="wll_conC">
+          <text class="wll_kt1">￥99</text>
+          <text class="wll_kt2">￥490</text>
+          <button type="primary" size="mini" class="wll_button1" bindtap="pintuan">拼团</button>
+        </view>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="wll_commodity">
+    <view class="wll_commoditygoods">
+      <view class="wll_viewlb">
+        <view></view>
+        <text>商品类表</text>
+        <view></view> 
+      </view>
+    </view>
+    <!-- 商品列表 -->
+    <view class="wll_shoop">
+      <!-- ul -->
+      <!-- <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style="height: 100vh;"> -->
+        <view class="wll_li" wx:for="{{list}}" wx:key="index" bindtap="gotoDetails" data-name="{{item.id}}">
+          <image src="{{item.pic}}"></image>
+          <text class="wll_name">{{item.name}}</text>
+          <view class="wll_price">
+            <text class="wll_p1">￥{{item.minPrice}}</text>
+            <text class="wll_p2">￥{{item.originalPrice}}</text>
+          </view>
+        </view>
+      <!-- </scroll-view> -->
+    </view>
+    <view class="wll_jiazai">
+      <text>{{jiazai}}</text>
+    </view>
+  </view>
+</view>

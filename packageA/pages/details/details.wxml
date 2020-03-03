@@ -1,0 +1,272 @@
+<!--pages/details/details.wxml-->
+<!-- 商品详情页面布局 -->
+<view class="wll_details">
+  <!-- 头部布局 -->
+  <view class="wll_details_head">
+    <image src="{{list.pic}}" class="wll_details_head_image"></image>
+    <view class="wll_details_head_one">
+      <view>{{list.name}}</view>
+      <view class="wll_details_head_two">
+        <view>￥{{list.minPrice}}
+          <text>{{list.numberOrders}}人已买</text>
+        </view>
+        <view class="wll_details_head_three">
+        <!-- open-type="share"触发方式 -->
+          <button plain="true" open-type="share" data-name='{{list.name}}'>
+            <image src="/image/z.png"></image>
+          </button>
+          <button plain="true" bindtap="hai">
+            <image src="/image/zz.png"></image>
+          </button>
+          <!-- <button open-type="share">
+            <image src="/image/z.png"></image>
+          </button>
+          <button bindtap="hai">
+            <image src="/image/zz.png"></image>
+          </button> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品平团 -->
+  <!-- <view wx:if="{{pingTuan}}" class="wll_details_kanJia">
+    <view>商品拼团设置</view>
+    <view class="wll_details_kanJia_one">
+      <view>已成团</view>
+      <view>0</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>成团人数</view>
+      <view>5</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>退款条件</view>
+      <view>8小时未成团</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>截止</view>
+      <view>2019-12-31 00:00:00</view>
+    </view>
+  </view> -->
+  <!-- 商品砍价 -->
+  <!-- <view wx:if="{{kanJia}}" class="wll_details_kanJia">
+    <view>商品砍价设置</view>
+    <view class="wll_details_kanJia_one">
+      <view>限量</view>
+      <view>676500份</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>已售</view>
+      <view>58份</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>原价</view>
+      <view>￥100</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>底价</view>
+      <view>￥80</view>
+    </view>
+    <view class="wll_details_kanJia_one">
+      <view>截止</view>
+      <view>2222-05-01 12:00:00</view>
+    </view>
+      <view class="wll_details_kanJia_one ">帮Ta砍价吧！</view>
+      <view class="wll_details_kanJia_one wll_details_kanJia_two">
+        <view>邀请朋友帮忙</view>
+        <view>砍价</view>
+      </view>
+       <view class="wll_details_kanJia_one">
+      <view >帮砍人数</view>
+      <view>2</view>
+    </view>
+     <view class="wll_details_kanJia_one">
+      <view>状态</view>
+      <view>进行中</view>
+    </view>
+     <view class="wll_details_kanJia_one">
+      <view>报名时间</view>
+      <view>￥2020-01-21 15:45:24</view>
+    </view>
+  
+  </view> -->
+  <!-- 选择 -->
+  <view class="wll_details_xuan" bindtap="gou" wx:if="{{!kanJia}}">
+    <view>
+      选择：
+      <text  wx:for='{{yc}}' wx:key='index'>{{item.name}} </text>
+      <!-- <text  wx:for='{{yanse}}' wx:key='index'>{{item.name}} </text> -->
+    </view>
+    <image src="/image/rihgt.png"></image>
+  </view>
+  <!-- 商品介绍 -->
+  <view class="wll_details_jieShao">
+    <view class="wll_details_sp">商品介绍</view>
+  </view>
+  <!-- 底部固定导航 -->
+  <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+    <image src="/image/ll.png"></image>
+    <view>快速导航</view>
+  </view>
+  <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+    <view class="wll_zi_bottom_one_nav">
+      <image src="/image/rl.png"></image>
+      <text>快速导航</text>
+    </view>
+    <view class="wll_zi_bottom_two">
+      <view class="wll_zi_bottom_two_dd" bindtap="index">
+        <image src="/image/index.png"></image>
+        <text>首页</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="classify">
+        <image src="/image/classify.png"></image>
+        <text>分类</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="cart">
+        <image src="/image/cart.png"></image>
+        <text>购物车</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="my">
+        <image src="/image/my.png"></image>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+  <!-- 用当前的价格买 -->
+  <view bindtap="gou_one" wx:if="{{kanJia}}" class="wll_details_dd">用当前的价格买</view>
+  <!-- 平团 -->
+  <!-- 底部固定导航 -->
+  <view class="wll_details_fiex" wx:if="{{shop_one}}" wx:if="{{pingTuan}}">
+    <view class="wll_details_fiex_one">
+      <view class="wll_details_fiex_two">
+        <image src="/image/kefu.png"></image>
+        <view>客服</view>
+      </view>
+      <view class="wll_details_fiex_two" bindtap="shop">
+        <image src="/image/cart.png"></image>
+        <view>购物车</view>
+      </view>
+    </view>
+    <view class="wll_details_fiex_three" bindtap="gou">单独购买</view>
+    <view class="wll_details_fiex_four" bindtap="gou_one">发起拼团</view>
+  </view>
+  <!-- 底部固定导航 -->
+  <view class="wll_details_fiex" wx:if="{{!kanJia}}" wx:if="{{!pingTuan}}">
+    <view class="wll_details_fiex_one">
+      <view class="wll_details_fiex_two">
+        <image src="/image/kefu.png"></image>
+        <view>客服</view>
+      </view>
+      <view class="wll_details_fiex_two" bindtap="shop">
+        <image src="/image/cart.png"></image>
+        <view>购物车</view>
+      </view>
+    </view>
+    <view class="wll_details_fiex_three" bindtap="gou">加入购物车</view>
+    <view class="wll_details_fiex_four" bindtap="gou_one">立即购买</view>
+  </view>
+
+  <!-- 点击生成海报 -->
+  <view wx:if="{{hai}}" class="wll_details_haiBao">
+    <view class="wll_details_haiBao_one">
+      <image src="{{list.pic}}"></image>
+      <view class="wll_details_name">{{list.name}}</view>
+      <view class="wll_details_haiBao_two">￥{{list.minPrice}}</view>
+      <image src="/image/wo.jpg" class="wll_details_haiBao_three"></image>
+      <view class="wll_details_haiBao_four">长按小程序码查看详情</view>
+    </view>
+    <view class="wll_details_haiBao_five">
+      <button>保存图片</button>
+      <button bindtap="hai_bi">关闭</button>
+    </view>
+  </view>
+
+  <!-- 点击购物车显示页面 -->
+  <view class="wll_details_shop" wx:if="{{shop}}">
+    <view class="wll_details_shop_one">
+      <view class="wll_details_shop_one_head">
+        <image src="{{list.pic}}"></image>
+        <view class="wll_details_shop_one_right">
+          <view>{{list.name}}</view>
+          <!-- 根据规格显示的价格 -->
+          <view wx:if='{{price==""?true:false}}'>￥{{list.minPrice}}</view>
+          <view wx:if='{{price==""?false:true}}'>￥{{shu*price}}</view> 
+          <!-- <view>{{list.minPrice}}</view> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_two">
+        <view>{{yc[0].name}}</view>
+        <view>
+          <text wx:for='{{yanse}}' wx:key='index' class="wll_details_yt {{curIndex==index?'active':''}}" bindtap="check" data-index='{{index}}' data-id="{{item.id}}" data-propertyId="{{item.propertyId}}">{{item.name}}</text>
+          <!-- <text class="{{num==0?'aa':''}}" data-current = "0" bindtap="check" data-text="粉色叶子">粉色叶子</text>
+          <text class="{{num==1?'aa':''}}" data-current = "1" bindtap="check" data-text="淡灰小船">淡灰小船</text> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_two wll_details_shop_three">
+        <view>{{yc[1].name}}</view>
+        <view>
+        <!-- 在每个按钮上通过自定义属性绑定propertid 和 id -->
+         <text wx:for='{{chima}}' wx:key='index' class="wll_details_yt {{curIndex2==index?'active':''}}" bindtap="check_one" data-index='{{index}}' data-id="{{item.id}}" data-propertyId="{{item.propertyId}}">{{item.name}}</text>
+          <!-- <text class="{{num_one==0?'aa':''}}" data-current = "0" bindtap="check_one" data-text_one="红色">红色</text>
+          <text class="{{num_one==1?'aa':''}}" data-current = "1" bindtap="check_one" data-text_one="黄色">黄色</text>
+          <text class="{{num_one==2?'aa':''}}" data-current = "2" bindtap="check_one" data-text_one="蓝色">蓝色</text> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_four">
+        <view>购买数量</view>
+        <view class="wll_details_shop_five">
+          <text bindtap="jian" class="{{background}}">-</text>
+          <input value="{{shu}}" bindinput="huo"></input>
+          <text bindtap="jia">+</text>
+        </view>
+      </view>
+      <view class="wll_details_shop_six" bindtap="addcart">加入购物车</view>
+    </view>
+    <icon type="cancel" class="wll_details_shop_seven" bindtap="hidd" color="#000000"></icon>
+  </view>
+
+ <!-- 点击立即购买显示页面 -->
+  <view class="wll_details_shop" wx:if="{{shop_one}}">
+    <view class="wll_details_shop_one">
+      <view class="wll_details_shop_one_head">
+        <image src="{{list.pic}}"></image>
+        <view class="wll_details_shop_one_right">
+          <view>{{list.name}}</view>
+          <!-- 根据规格显示的价格 -->
+          <view wx:if='{{price==""?true:false}}'>￥{{list.minPrice}}</view>
+          <view wx:if='{{price==""?false:true}}'>￥{{shu*price}}</view> 
+          <!-- <view>{{list.minPrice}}</view> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_two">
+        <view>{{yc[0].name}}</view>
+        <view>
+          <text wx:for='{{yanse}}' wx:key='index' class="wll_details_yt {{curIndex==index?'active':''}}" bindtap="check" data-index='{{index}}' data-id="{{item.id}}" data-price="price">{{item.name}}</text>
+          <!-- <text class="{{num==0?'aa':''}}" data-current = "0" bindtap="check" data-text="粉色叶子">粉色叶子</text>
+          <text class="{{num==1?'aa':''}}" data-current = "1" bindtap="check" data-text="淡灰小船">淡灰小船</text> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_two wll_details_shop_three">
+        <view>{{yc[1].name}}</view>
+        <view>
+         <!-- 在每个按钮上通过自定义属性绑定propertid 和 id -->
+         <text wx:for='{{chima}}' wx:key='index' class="wll_details_yt {{curIndex2==index?'active':''}}" bindtap="check_one" data-index='{{index}}' data-id="{{item.id}}" data-propertyId="{{item.propertyId}}">{{item.name}}</text>
+          <!-- <text class="{{num_one==0?'aa':''}}" data-current = "0" bindtap="check_one" data-text_one="红色">红色</text>
+          <text class="{{num_one==1?'aa':''}}" data-current = "1" bindtap="check_one" data-text_one="黄色">黄色</text>
+          <text class="{{num_one==2?'aa':''}}" data-current = "2" bindtap="check_one" data-text_one="蓝色">蓝色</text> -->
+        </view>
+      </view>
+      <view class="wll_details_shop_four">
+        <view>购买数量</view>
+        <view class="wll_details_shop_five">
+          <text bindtap="jian" class="{{background}}">-</text>
+          <input value="{{shu}}" bindinput="huo"></input>
+          <text bindtap="jia">+</text>
+        </view>
+      </view>
+      <view class="wll_details_shop_six" bindtap="mai">立即购买</view>
+    </view>
+    <icon type="cancel" class="wll_details_shop_seven" bindtap="hidd" color="#000000"></icon>
+  </view>
+  <!-- 结束 -->
+</view>

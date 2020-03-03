@@ -1,0 +1,122 @@
+/* pages/search/search.wxss */
+/* 搜索商品列表 */
+.wll_search{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 搜索框 */
+.wll_goSearch{
+  width: 100%;
+  height: 136rpx;
+  position: relative;
+}
+
+.wll_goSearch input{
+  width: 566rpx; 
+  height: 64rpx;
+  border: 1PX solid #c0c0c0;
+  background: #fff;
+  font-size: 26rpx;
+  margin: 0 auto;
+  padding-left: 56rpx;
+  outline: none;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 40rpx;
+}
+
+.wll_image1{
+  width:48rpx;
+  height:48rpx;
+  position: absolute;
+  margin-top: 42rpx;
+  margin-left: 566rpx;
+}
+
+.wll_image2{
+  width:48rpx;
+  height:48rpx;
+  position: absolute;
+  margin-top: 42rpx;
+  margin-left: 676rpx;
+}
+
+/* 排序 */
+.wll_nav{
+  display: flex;
+  justify-content: space-around;
+}
+
+.wll_nav text {
+  display: block;
+  width: 25%;
+  height: 80rpx;
+  border-top: 2rpx solid #ccc;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.wll_nav .textActive {
+  color: red;
+}
+
+/* 渲染类表的大盒子 */
+.wll_goods{
+  background: #eee;
+  padding: 20rpx;
+}
+
+.wll_goods>view{
+  display: flex;
+  background: white;
+  border-radius: 20rpx;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+/* 渲染类表的图片 */
+.wll_goodsTop{
+  width: 30%;
+}
+
+.wll_goodsTop>image{
+  width: 100%;
+  height: 200rpx;
+  border-radius:20rpx 0 0 20rpx; 
+}
+
+/* 渲染类表的右边 */
+.wll_goodsBot{
+  width: 70%;
+  padding: 20rpx 30rpx;
+}
+
+.wll_goodsBot text{
+  display: block;
+  padding-bottom: 10rpx;
+  font-size: 28rpx;
+}
+
+.wll_goodsBot text:nth-of-type(2){
+  color: red;
+  font-size: 34rpx;
+}
+
+.wll_goodsBot view{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wll_goodsBot view text{
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+.wll_goodsBot view image{
+  width: 50rpx;
+  height: 40rpx
+}

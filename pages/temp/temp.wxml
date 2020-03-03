@@ -1,0 +1,12 @@
+<!--pages/temp/temp.wxml-->
+<!-- <text>pages/temp/temp.wxml</text> -->
+<!-- 简单封装购物车 -->
+<template name="msgItem">
+  <view>
+    <view wx:for='{{list}}'>{{item.id}}</view>
+  </view>
+  <!-- <view wx:for='{{list}}'>
+    {{item}}
+  </view> -->
+</template>
+

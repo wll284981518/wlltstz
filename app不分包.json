@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/index/index",
+    "pages/authorize/authorize",
+    "pages/search/search",
+    "pages/details/details",
+    "pages/more/more",
+    "pages/exclusive/exclusive",
+    "pages/classify/classify", 
+    "pages/cart/cart", 
+    "pages/my/my",
+    "pages/address/address",
+    "pages/newaddress/newaddress",
+    "pages/temp/temp",
+    "pages/template/template"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "天使童装",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/image/index_active.png",
+        "iconPath": "/image/index.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "selectedIconPath": "/image/classify_active.png",
+        "iconPath": "/image/classify.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "selectedIconPath": "/image/cart_active.png",
+        "iconPath": "/image/cart.png",
+        "text": "购物车"   
+      },
+      {
+        "pagePath": "pages/my/my",
+        "selectedIconPath": "/image/my_active.png",
+        "iconPath": "/image/my.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ]
+}

@@ -1,0 +1,167 @@
+<!--packageA/pages/orderdetails/orderdetails.wxml-->
+<!-- <text>packageA/pages/orderdetails/orderdetails.wxml</text> -->
+<view class="wll_orderdetails">
+    <view class="wll_orderdetails_sec-wrap">
+        <view class="wll_orderdetails_order-status">
+            <view class="wll_orderdetails_icon-box">
+                <image wx:if="{{orderDetail.orderInfo.status==-0}}" class="wll_orderdetails_icon" src="/image/clo.png"></image>
+                <image wx:elif="{{orderDetail.orderInfo.status==1}}" class="wll_orderdetails_icon" src="/image/ddfk.png"></image>
+                <image wx:elif="{{orderDetail.orderInfo.status==2}}" class="wll_orderdetails_icon" src="/image/fh.png"></image>
+                <image wx:elif="{{orderDetail.orderInfo.status==3}}" class="wll_orderdetails_icon" src="/image/ddsh.png"></image>
+                <image wx:elif="{{orderDetail.orderInfo.status==3 || orderDetail.orderInfo.status==4}}" class="wll_orderdetails_icon" src="/image/jycg.png"></image>
+            </view>
+            <view class="wll_orderdetails_right-text">
+                <view class="wll_orderdetails_status red">{{orderDetail.orderInfo.statusStr}}</view>
+                <view class="wll_orderdetails_des" hidden="true">请于11时59分59秒内付款，超时订单将自动关闭</view>
+            </view>
+        </view>
+        <block wx:if="{{orderDetail.logistics}}">
+            <view wx:if="{{orderDetail.logisticsTraces}}" class="wll_orderdetails_wuliu-box">
+                <view class="wll_orderdetails_icon-box">
+                    <image class="wll_orderdetails_icon" src="wode_05.jpg"></image>
+                </view>
+                <view class="wll_orderdetails_right-text" bindtap="wuliuDetailsTap" data-id="{{orderDetail.orderInfo.id}}">
+                    <view class="wll_orderdetails_order-number">快递单号：{{orderDetail.logistics.trackingNumber}}</view>
+                    <block wx:if="{{orderDetail.logisticsTraces}}">
+                        <view class="wll_orderdetails_wuliu-text">
+                            {{orderDetail.logisticsTraces[orderDetail.logisticsTraces.length-1].AcceptStation}}
+                        </view>
+                        <view class="wll_orderdetails_wuliu-date">
+                            {{orderDetail.logisticsTraces[orderDetail.logisticsTraces.length-1].AcceptTime}}
+                        </view>
+                    </block>
+                </view>
+                <!-- <view class="wll_orderdetails_arrow-right">
+                    <image class="wll_orderdetails_arrow" src="/image/arrow-right.png"></image>
+                </view> -->
+            </view>
+            <view wx:else class="wll_orderdetails_wuliu-box">
+                <view class="wll_orderdetails_icon-box">
+                    <image class="wll_orderdetails_icon" src="/image/wode_05.jpg"></image>
+                </view>
+                <view class="wll_orderdetails_right-text">
+                    <view class="wll_orderdetails_order-number">快递单号：{{orderDetail.logistics.trackingNumber}}</view>
+                    <view class="wll_orderdetails_wuliu-text">暂无物流信息</view>
+                </view>
+            </view>
+            <view class="wll_orderdetails_address-sec">
+                <view class="wll_orderdetails_icon-box">
+                    <image class="wll_orderdetails_icon" src="/image/wode_05.jpg"></image>
+                </view>
+                <view class="wll_orderdetails_right-box">
+                    <view class="wll_orderdetails_name-tel">{{orderDetail.logistics.linkMan}}  {{orderDetail.logistics.mobile}}</view>
+                    <view class="wll_orderdetails_text">
+                        {{orderDetail.logistics.provinceStr}}
+                        {{orderDetail.logistics.cityStr}}
+                        {{orderDetail.logistics.areaStr}}
+                        {{orderDetail.logistics.address}}
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="wll_orderdetails_goods-list">
+        <view class="wll_orderdetails_list-title">商品信息</view>
+        <form bindsubmit="submitReputation" report-submit="true">
+            <block wx:for-items="{{orderDetail.goods}}" wx:key="{{index}}">
+                <view class="wll_orderdetails_a-goods">
+                    <view class="wll_orderdetails_img-box">
+                        <image src="{{item.pic}}" class="wll_orderdetails_img" />
+                    </view>
+                    <view class="wll_orderdetails_text-box">
+                        <view class="wll_orderdetails_arow wll_orderdetails_arow01">
+                            <view class="wll_orderdetails_goods-name">{{item.goodsName}}</view>
+                            <view class="wll_orderdetails_goods-price">¥ {{item.amount}}</view>
+                        </view>
+                        <view class="wll_orderdetails_arow">
+                            <view class="wll_orderdetails_goods-label">{{item.property}}</view>
+                            <view class="wll_orderdetails_goods-num">x {{item.number}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="wll_orderdetails_btn-row" wx:if="{{orderDetail.orderInfo.status==3}}">
+                    <view class="wll_orderdetails_section wll_orderdetails_section_gap">
+                        <view style="margin-top:35rpx;margin-bottom:35rpx;">评价：</view>
+                        <radio-group name="goodReputation{{index}}">
+                            <label style="margin-right:35rpx;"><radio value="2" checked/>好评</label>
+                            <label style="margin-right:35rpx;"><radio value="1"/>中评</label>
+                            <label style="margin-right:35rpx;"><radio value="0"/>差评</label>
+                        </radio-group>
+                    </view>
+                    <view class="wll_orderdetails_row-box" style="margin-top:35rpx">
+                        <view class="wll_orderdetails_row-label">备注</view>
+                        <input name="orderGoodsId{{index}}" value="{{item.id}}" style="display:none;"/>
+                        <textarea name="goodReputationRemark{{index}}" style="margin-top:35rpx;width:100%;" value="非常愉快的一次购物！" />
+                    </view>
+                </view>
+            </block>
+            <view class="wll_orderdetails_btn-row" wx:if="{{orderDetail.orderInfo.status==3}}">                
+                <navigator style="float:right;" class="wll_orderdetails_confirm-btn" target="miniProgram" app-id="wx56c8f077de74b07c" path="/open/order-comment/order-comment?appid={{appid}}&order_id={{orderDetail.orderInfo.orderNumber}}">
+                    去购物单评价
+                </navigator>
+                <button style="float:right;" class="wll_orderdetails_confirm-btn" formType="submit">提交评价</button>
+            </view>
+        </form>
+        <form bindsubmit="confirmBtnTap" report-submit="true">
+            <view class="wll_orderdetails_btn-row" wx:if="{{orderDetail.orderInfo.status==2}}">
+                <button class="wll_orderdetails_confirm-btn" formType="submit">确认收货</button>
+            </view>
+        </form>
+    </view>
+    <view class="wll_orderdetails_peisong-way" hidden="true">
+        <view class="wll_orderdetails_row-box">
+            <view class="wll_orderdetails_row-label">配送方式</view>
+            <view class="wll_orderdetails_right-text">顺丰快递</view>
+        </view>
+        <view class="wll_orderdetails_row-box">
+            <view class="wll_orderdetails_row-label">留言</view>
+            <view class="wll_orderdetails_right-text">
+                <input name="remark" type="text" class="wll_orderdetails_liuyan" placeholder="如需留言请输入" />
+            </view>
+        </view>
+    </view>
+    <view class="wll_orderdetails_goods-info">
+        <view class="wll_orderdetails_row-box">
+            <view class="wll_orderdetails_row-label">商品金额</view>
+            <view class="wll_orderdetails_right-text">¥ {{orderDetail.orderInfo.amount}}</view>
+        </view>
+        <view class="wll_orderdetails_row-box">
+            <view class="wll_orderdetails_row-label">运费</view>
+            <view class="wll_orderdetails_right-text">+ ¥ {{orderDetail.orderInfo.amountLogistics}}</view>
+        </view>
+        <view class="wll_orderdetails_row-box">
+            <view class="wll_orderdetails_row-label">应付总额</view>
+            <view class="wll_orderdetails_right-text">¥ {{orderDetail.orderInfo.amountReal}}</view>
+        </view>
+    </view>
+    <!-- 底部固定导航 -->
+    <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+        <image src="/image/ll.png"></image>
+        <view>快速导航</view>
+    </view>
+    <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+        <view class="wll_zi_bottom_one_nav">
+            <image src="/image/rl.png"></image>
+            <text>快速导航</text>
+        </view>
+        <view class="wll_zi_bottom_two">
+            <view class="wll_zi_bottom_two_dd" bindtap="index">
+                <image src="/image/index.png"></image>
+                <text>首页</text>
+            </view>
+            <view class="wll_zi_bottom_two_dd" bindtap="classify">
+                <image src="/image/classify.png"></image>
+                <text>分类</text>
+            </view>
+            <view class="wll_zi_bottom_two_dd" bindtap="cart">
+                <image src="/image/cart.png"></image>
+                <text>购物车</text>
+            </view>
+            <view class="wll_zi_bottom_two_dd" bindtap="my">
+                <image src="/image/my.png"></image>
+                <text>我的</text>
+            </view>
+        </view>
+    </view>
+</view>
+<float-menu /> 

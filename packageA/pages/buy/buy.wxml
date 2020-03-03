@@ -1,0 +1,109 @@
+<!--packageA/pages/buy/buy.wxml-->
+<!-- <text>packageA/pages/buy/buy.wxml</text> -->
+<!-- 确认订单页面-->
+<view class="wll_buy">
+  <view>商品列表</view>
+  <view class="wll_buy_head"  wx:for="{{list}}" wx:key="key">
+    <image src="{{item.pic}}"></image>
+    <view class="wll_buy_head_right">
+      <view class="wll_buy_head_right_one">
+        <text>{{item.name}}</text>
+        <text>￥{{item.price*item.number}}</text>
+      </view>
+      <view class="wll_qq">
+        <view class="wll_buy_head_right_two" wx:for="{{item.sku}}" wx:key="key" wx:for-item="pp">
+          {{pp.optionName}}:{{pp.optionValueName}} 
+        </view>
+      </view>
+      <!-- <view class="wll_buy_head_right_two">
+        <text>花色：{{text}}</text>
+        <text>颜色：{{text_one}}</text>
+        <text>X{{shu}}</text>
+      </view> -->
+      <text>x{{item.number}}</text>
+    </view>
+  </view>
+  <!-- 配送方式 -->
+  <view class="wll_buy_peiSong">
+    <view class="wll_buy_peiSong_one">
+      <view>配送方式</view>
+      <!-- 方式 -->
+      <view>
+        <radio-group bindchange="radioChange">
+          <radio class="wll_buy_radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}" size="14">
+            <text>{{item.value}}</text>
+          </radio>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 地址 -->
+    <view class="wll_buy_peiSong_two" bindtap="add" wx:if="{{!address_show}}">
+      <view>+</view>
+      <view>新增收货地址</view>
+      <image src="/image/rihgt.png"></image>
+    </view>
+    <!-- 添加地址后的样式 -->
+    <view wx:if="{{address_show}}" class="wll_buy_add_address"  bindtap="shouHuo"  wx:for-index="id" data-index="{{id}}">
+      <image src="/image/city.png"></image>
+      <view class="wll_buy_add_address_one">
+        <view>
+          {{arr.linkMan}}
+          <text>{{arr.mobile}}</text>
+        </view>
+        <view>{{arr.provinceStr}}{{arr.cityStr}}{{arr.areaStr}}{{arr.address}}</view>
+      </view>
+      <image src="/image/rihgt.png"></image>
+    </view>
+    <!-- 备注 -->
+    <view  class="wll_buy_peiSong_three">
+      <view>备注</view>
+      <input type="text" placeholder="如需备注请输入" bindinput ="userRemark"></input>
+    </view>
+    <!-- 优惠券 -->
+    <view  class="wll_buy_peiSong_four">
+      <view>选择使用优惠券</view>
+      <view>不使用优惠券</view>
+    </view>
+    <!-- 优惠 -->
+    <view class="wll_buy_peiSong_five">
+      <view>优惠券</view>
+      <view>-￥1</view>
+    </view>
+  </view>
+  <!-- 提交订单 -->
+  <view class="wll_buy_peiSong_fiex">
+    <view>合计：￥{{zong}}+0积分</view>
+    <view bindtap="sub">提交订单</view>
+  </view>
+
+  <!-- 底部固定导航 -->
+  <view class="wll_zi_bottom" wx:if="{{!show}}" bindtap="show">
+    <image src="/image/ll.png"></image>
+    <view>快速导航</view>
+  </view>
+  <view class="wll_zi_bottom_one" wx:if="{{show}}" bindtap="show">
+    <view class="wll_zi_bottom_one_nav">
+      <image src="/image/rl.png"></image>
+      <text>快速导航</text>
+    </view>
+    <view class="wll_zi_bottom_two">
+      <view class="wll_zi_bottom_two_dd" bindtap="index">
+        <image src="/image/index.png"></image>
+        <text>首页</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="classify">
+        <image src="/image/classify.png"></image>
+        <text>分类</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="cart">
+        <image src="/image/cart.png"></image>
+        <text>购物车</text>
+      </view>
+      <view class="wll_zi_bottom_two_dd" bindtap="my">
+        <image src="/image/my.png"></image>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+<!-- 确认订单页面布局结束 -->
+</view>

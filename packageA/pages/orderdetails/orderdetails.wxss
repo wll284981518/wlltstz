@@ -1,0 +1,387 @@
+/* packageA/pages/orderdetails/orderdetails.wxss */
+page{
+  min-height: 100%;
+  background-color: #F2f2f2;
+}
+
+.wll_orderdetails{
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.wll_orderdetails_sec-wrap{
+    background-color: #fff;
+    margin-top: 20rpx;
+}
+
+.wll_orderdetails_bottom-fiexd{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.wll_orderdetails_sec-wrap .wll_orderdetails_order-status{
+    width: 720rpx;
+    margin-left: 30rpx;
+    border-bottom: 1rpx solid #eee;
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_icon-box{
+    width: 80rpx;
+    height: 80rpx;
+    overflow: hidden;
+    margin-right: 30rpx;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_icon-box .wll_orderdetails_icon{
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_right-text{
+    width: 580rpx;
+    overflow: hidden;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_right-text .wll_orderdetails_status{
+    font-size:28rpx;
+    color:#000; 
+    margin-bottom: 10rpx;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_right-text .wll_orderdetails_red{
+    color:#e64340;
+}
+
+.wll_orderdetails_order-status .wll_orderdetails_right-text .wll_orderdetails_des{
+    font-size:24rpx;
+    color:#999; 
+}
+
+.wll_orderdetails_address-sec{
+    width: 720rpx;
+    margin-left: 30rpx;
+    display: flex;
+    align-items: center;
+    padding: 30rpx 0;
+}
+
+.wll_orderdetails_address-sec .wll_orderdetails_icon-box{
+    width: 30rpx;
+    align-self: flex-start;
+    overflow: hidden;
+    margin-right: 35rpx;
+}
+
+.wll_orderdetails_address-sec .wll_orderdetails_icon-box .wll_orderdetails_icon{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.wll_orderdetails_awll_orderdetails_ddress-sec  .wll_orderdetails_right-box{
+    width: 620rpx;
+}
+
+.wll_orderdetails_address-sec  .wll_orderdetails_right-box .wll_orderdetails_name-tel{
+    font-size:28rpx;
+    color:#000000;
+    margin-bottom: 20rpx;
+}
+
+.wll_orderdetails_address-sec  .wll_orderdetails_right-box .wll_orderdetails_text{
+    font-size:24rpx;
+    color:#888888;
+    line-height:36rpx;
+    height: 72rpx;
+    overflow: hidden;
+}
+
+.wll_orderdetails_wuliu-box{
+    width: 720rpx;
+    margin-left: 30rpx;
+    border-bottom: 1rpx solid #eee;
+    display: flex;
+    align-items: center;
+    padding: 30rpx 0;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_icon-box {
+    width: 40rpx;
+    height: 40rpx;
+    overflow: hidden;
+    margin-right: 31rpx;
+    align-self: flex-start;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_icon-box .iwll_orderdetails_con{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_arrow-right{
+    width: 15rpx;
+    height: 24rpx;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_arrow-right .wll_orderdetails_arrow{
+    width: 15rpx;
+    height: 24rpx;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_right-text{
+    width: 575rpx;
+    margin-right: 30rpx;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_right-text .wll_orderdetails_order-number{
+    font-size:28rpx;
+    colwll_orderdetails_or:#000;
+    margin-bottom: 14rpx;
+}
+
+.wll_orderdetails_wuliu-box .wll_orderdetails_right-text .wll_orderdetails_wuliu-text,
+.wll_orderdetails_wuliu-box .wll_orderdetails_right-text .wll_orderdetails_wuliu-date{
+    font-size:24rpx;
+    color:#888888;
+    line-height:36rpx;
+}
+
+.wll_orderdetails_goods-list{
+    width:100%;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+}
+.wll_orderdetails_goods-list .wll_orderdetails_list-title{
+    font-size: 28rpx;
+    color: #000;
+    padding: 30rpx 0 25rpx 30rpx;
+}
+.wll_orderdetails_goods-list  .wll_orderdetails_a-goods{
+    width: 720rpx;
+    margin-left: 30rpx;
+    display: flex;
+    /*justify-content: space-between;*/
+    border-top: 1px solid #eee;
+    padding: 30rpx 30rpx 30rpx 0;
+}
+.wll_orderdetails_goods-list  .wll_orderdetails_a-goods .wll_orderdetails_img-box{
+    width: 160rpx;
+    height:160rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
+    background-color: #d8d8d8;
+}
+
+.wll_orderdetails_goods-list .wll_orderdetails_img-box .wll_orderdetails_img{
+    width: 160rpx;
+    height:160rpx;
+}
+
+.wll_orderdetails_goods-list  .wll_orderdetails_a-goods .wll_orderdetails_text-box{
+    width: 510rpx;
+    box-sizing: border-box;
+    padding-top: 10rpx;
+}
+
+.wll_orderdetails_goods-list  .wll_orderdetails_btn-row{
+    width: 720rpx;
+    margin-left: 30rpx;
+    border-top: 1rpx solid #eee;
+}
+
+.wll_orderdetails_confirm-btn{
+    background:#ffffff;
+    border:1rpx solid #e64340;
+    border-radius:6rpx;
+    width:164rpx;
+    height:60rpx;
+    line-height: 60rpx;
+    margin: 20rpx 30rpx 20rpx auto;
+    font-size:26rpx;
+    color:#e64340;
+    text-align:center;
+}
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow .wll_orderdetails_goods-name{
+     width: 360rpx;
+     font-size:26rpx;
+     height: 74rpx;
+     color:#000000;
+     line-height: 1.6;
+     overflow: hidden;
+ }
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow01{
+    margin-bottom: 30rpx;
+}
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow .wll_orderdetails_goods-price{
+    font-size:26rpx;
+    color:#000000;
+    align-self: flex-start;
+}
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow .wll_orderdetails_goods-label{
+    font-size: 26rpx;
+    color: #999;
+}
+
+.wll_orderdetails_a-goods .wll_orderdetails_text-box .wll_orderdetails_arow .wll_orderdetails_goods-num{
+    font-size: 26rpx;
+    color: #999;
+}
+
+.wll_orderdetails_peisong-way{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.wll_orderdetails_peisong-way .wll_orderdetails_row-box{
+    width: 720rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24rpx 0;
+    border-bottom: 1rpx solid #eee;
+    margin-left: 30rpx;
+}
+
+.wll_orderdetails_peisong-way .wll_orderdetails_row-label{
+    font-size: 28rpx;
+    color: #000;
+}
+
+.wll_orderdetails_peisong-way .wll_orderdetails_right-text{
+    font-size: 28rpx;
+    color: #666;
+    padding-right: 30rpx;
+}
+
+.wll_orderdetails_peisong-way .wll_orderdetails_liuyan{
+    width: 510rpx;
+    font-size: 28rpx;
+}
+
+.wll_orderdetails_goods-info{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 120rpx;
+    padding-bottom: 24rpx;
+}
+
+.wll_orderdetails_goods-info .wll_orderdetails_row-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24rpx 30rpx 12rpx 30rpx;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.wll_orderdetails_goods-info .wll_orderdetails_row-box .wll_orderdetails_right-text{
+    text-align: right;
+}
+
+/* 固定导航 */
+.wll_zi_bottom{
+    position: fixed;
+    right: 0;
+    bottom: 400rpx;
+    width: 120rpx;
+    height: 80rpx;
+    border-radius: 6px 0 0 6px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .wll_zi_bottom>image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+    margin-left: 8rpx;
+  }
+  
+  .wll_zi_bottom>view{
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 24rpx;
+    text-align: center;
+  }
+  
+  /* 出来的那个导航 */
+  .wll_zi_bottom_one{
+    position:fixed;
+    bottom: 160rpx;
+    right: 0;
+    width: 80%;
+    height: 80rpx;
+    /* border: 1px solid #000; */
+    display: flex;
+  }
+  
+  .wll_zi_bottom_one_nav{
+    width: 120rpx;
+    height: 80rpx;
+    border-radius: 6px 0 0 6px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .wll_zi_bottom_one_nav>image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 8rpx;
+    margin-left: 8rpx;
+  }
+  
+  .wll_zi_bottom_one_nav>text{
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 24rpx;
+    text-align: center;
+    display: block;
+  }
+  
+  .wll_zi_bottom_two{
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    background: #ffffff;
+    justify-content: space-around;
+  }
+  
+  .wll_zi_bottom_two_dd{
+    width: 25%;
+    text-align: center;
+  }
+  
+  .wll_zi_bottom_two_dd>image{
+    width: 40rpx;
+    height: 40rpx;
+  }
+  
+  .wll_zi_bottom_two_dd>text{
+    display: block;
+    font-size: 12px;
+  }
+  

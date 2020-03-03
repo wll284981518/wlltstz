@@ -1,0 +1,9 @@
+<!--pages/cart/cart.wxml-->
+<!-- 购物车页面 -->
+<import src="../template/template.wxml" />
+
+<!-- <template is="templ1"></template> -->
+
+<template is="cart1" data="{{cart,items,startX,startY,shop,sLength,num,zong}}"></template>
+
+<template is="cart2" data="{{cart,items,startX,startY,shop,sLength,num,zong}}"></template>

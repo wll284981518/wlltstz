@@ -1,0 +1,37 @@
+<!--pages/search/search.wxml-->
+<!-- 搜索商品列表 -->
+<view class="wll_search">
+  <!-- 搜索框 -->
+  <view class="wll_goSearch">
+    <input placeholder="输入搜索关键词" value="{{name}}">
+      <!-- <image src="/image/tianshi_03.jpg"></image> -->
+    </input>
+    <image src='/image/tianshi_03.jpg' class='wll_image1' mode='aspectFill'></image>
+    <image src='/image/search.png' class="wll_image2"></image>
+  </view>
+  <!-- 排序 -->
+  <view class="wll_nav">
+    <text class="{{flag1?'textActive':''}}" bindtap="find1">综合</text>
+    <text class="{{flag2?'textActive':''}}" bindtap="find2">新品</text>
+    <text class="{{flag3?'textActive':''}}" bindtap="find3">销量</text>
+    <text class="{{flag4?'textActive':''}}" bindtap="find4">价格</text>
+  </view>
+  <!-- 渲染类表的大盒子 -->
+  <view class="wll_goods">
+    <view wx:for="{{list}}" wx:key="index">
+      <!-- 渲染类表的图片 -->
+      <view class="wll_goodsTop">
+        <image src="{{item.pic}}"></image>
+      </view>
+      <!-- 渲染类表的右边 -->
+      <view class="wll_goodsBot">
+        <text>{{item.name}}</text>
+        <text>￥{{item.minPrice}}</text>
+        <view>
+          <text>{{item.status}}人已购买</text>
+          <image src="/image/search2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

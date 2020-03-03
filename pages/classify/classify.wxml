@@ -1,0 +1,38 @@
+<!--pages/classify/classify.wxml-->
+<!-- <text>我是分类页面</text> -->
+<view class="wll_classify">
+<!-- 分类页面开始 -->
+  <view class="wll_classify_search">
+  <!-- 搜索 -->
+    <input type="search" placeholder="输入搜索关键词"  value="{{inputVal}}"  bindinput="inputTyping" bindconfirm="search"></input>
+    <icon type="search" size="30"></icon>
+  </view>
+  <view class="wll_classify_con">
+    <view class="wll_classify_left">
+      <!-- 左边导航栏布局开始 -->
+      <view wx:for="{{list}}">
+        <view class="wll_classify_left_one {{currentNavtab==index?'active':''}}"  bindtap="tap" data-index="{{index}}" data-item="{{item}}" wx:key="index" wx:if="{{index<13}}">{{item.name}}</view>
+      </view>
+     <!-- 左边导航栏布局结束 -->
+    </view>
+    <view class="wll_classify_right">
+      <!-- 右边导航栏布局开始 -->
+      <!-- <scroll-view scroll-y style="height: 400rpx;"> -->
+      <view  wx:for="{{list_one}}" class="wll_classify_right_one" wx:key="index" wx:if="{{shop}}" bindtap="gotoDetails" data-item="{{item}}">
+        <image src="{{item.pic}}"></image>
+        <view class="wll_classify_right_two">
+          <view>{{item.name}}</view>
+          <view>￥{{item.minPrice}}</view>
+          <view class="wll_classify_right_three">
+          <view>已售{{item.minPrice}}件</view>
+          <view>评价{{item.numberSells}}分</view>
+        </view>
+      </view>
+    </view>
+    <!-- </scroll-view> -->
+    <view wx:if="{{!shop}}"  class="wll_classify_end">-------暂无数据------</view>
+      <!-- 右边导航栏布局结束 -->
+    </view>
+  </view>
+<!-- 分类页面结束 -->
+</view>

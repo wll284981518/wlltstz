@@ -1,0 +1,173 @@
+/* packageC/pages/modification/modification.wxss */
+/* 新增地址页面布局 */
+.wll_box_address{
+  width: 100%;
+  height: 100%;
+  background: #f5f5f7;
+}
+
+page{
+  height: 100%;
+}
+
+.wll_address{
+  width: 100%;
+  /* height: 96%; */
+  position: relative;
+  padding: 10px 0;
+}
+
+/* 微信地址 */
+.wll_address_wx,.wll_address_bao{
+  width: 90%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background: #1cac19;
+  color: #fff;
+  margin: 10px auto;
+}
+
+/* 地址 */
+.wll_address_con{
+  padding: 0 10px;
+  height: auto;
+  background: #fff;
+}
+
+.wll_address_con_one{
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+}
+
+.wll_address_con_one>.wll_inp{
+  width: 30%;
+}
+
+.wll_address_con_one>.wll_inp1{
+  width: 100%;
+}
+
+picker{
+  width: 100%;
+}
+
+/* .wll_left{
+  float: left;
+} */
+
+.wll_address_con_one>input{
+  height: 40px;
+  padding-left:20px; 
+  width: 94%;
+   overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+}
+
+/* 保存 */
+.wll_address_bao{
+  background: #e74240;
+}
+
+.wll_active{
+  background: #86e111;
+}
+
+.wll_active_one{
+  background: #9a11e1;
+}
+
+/* 固定导航 */
+.wll_zi_bottom{
+  position: fixed;
+  right: 0;
+  bottom: 400rpx;
+  width: 120rpx;
+  height: 80rpx;
+  border-radius: 6px 0 0 6px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.wll_zi_bottom>image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+}
+
+.wll_zi_bottom>view{
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+/* 出来的那个导航 */
+.wll_zi_bottom_one{
+  position:fixed;
+  bottom: 160rpx;
+  right: 0;
+  width: 80%;
+  height: 80rpx;
+  /* border: 1px solid #000; */
+  display: flex;
+}
+
+.wll_zi_bottom_one_nav{
+  width: 120rpx;
+  height: 80rpx;
+  border-radius: 6px 0 0 6px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.wll_zi_bottom_one_nav>image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+}
+
+.wll_zi_bottom_one_nav>text{
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+  display: block;
+}
+
+.wll_zi_bottom_two{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  background: #fff;
+  justify-content: space-around;
+}
+
+.wll_zi_bottom_two_dd{
+  width: 25%;
+  text-align: center;
+}
+
+.wll_zi_bottom_two_dd>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.wll_zi_bottom_two_dd>text{
+  display: block;
+  font-size: 12px;
+}
+
